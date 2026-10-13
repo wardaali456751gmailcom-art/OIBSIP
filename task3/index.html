@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Temperature Converter</title>
+
+    <style>
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    padding: 20px;
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.converter-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.input-box {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #444444;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #d9e1f2;
+    border-radius: 10px;
+    outline: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.2);
+}
+
+.icon {
+    font-size: 28px;
+    color: #6c63ff;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6c63ff, #48c6ef);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.footer {
+    color: #ffffff;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .converter-box {
+        padding: 22px;
+    }
+}
+    </style>
+</head>
+<body>
+   
+
+    <div class="container">
+        <h1>🌡️ Temperature Converter</h1>
+        <p class="subtitle">Convert temperature easily!</p>
+
+        <div class="converter-box">
+
+            <div class="input-box">
+                <label for="celsius">Celsius (°C)</label>
+                <input
+                    type="number"
+                    id="celsius"
+                    placeholder="Enter Celsius"
+                    step="any"
+                >
+            </div>
+
+            <div class="icon">⇅</div>
+
+            <div class="input-box">
+                <label for="fahrenheit">Fahrenheit (°F)</label>
+                <input
+                    type="number"
+                    id="fahrenheit"
+                    placeholder="Enter Fahrenheit"
+                    step="any"
+                >
+            </div>
+
+            <button id="resetBtn" type="button">
+                Reset ↻
+            </button>
+
+        </div>
+
+        <p class="footer">Made with ❤️ using HTML, CSS & JavaScript</p>
+    </div>
+
+    <script>  
+        const celsius = document.getElementById("celsius");
+const fahrenheit = document.getElementById("fahrenheit");
+const resetBtn = document.getElementById("resetBtn");
+
+// Celsius to Fahrenheit
+celsius.addEventListener("input", function () {
+    if (celsius.value === "") {
+        fahrenheit.value = "";
+        return;
+    }
+
+    const c = parseFloat(celsius.value);
+    const f = (c * 9 / 5) + 32;
+
+    fahrenheit.value = Number(f.toFixed(2));
+});
+
+// Fahrenheit to Celsius
+fahrenheit.addEventListener("input", function () {
+    if (fahrenheit.value === "") {
+        celsius.value = "";
+        return;
+    }
+
+    const f = parseFloat(fahrenheit.value);
+    const c = (f - 32) * 5 / 9;
+
+    celsius.value = Number(c.toFixed(2));
+});
+
+// Reset both fields
+resetBtn.addEventListener("click", function () {
+    celsius.value = "";
+    fahrenheit.value = "";
+});
+    </script>
+</body>
+</html>
