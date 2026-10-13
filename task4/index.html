@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Warda Ali | Portfolio</title>
+
+    <style>
+        /* Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --main-color: #00abf0;
+            --dark-color: #081b29;
+            --second-color: #112e42;
+            --white-color: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--dark-color);
+            color: var(--white-color);
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--dark-color);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--white-color);
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--main-color);
+        }
+
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            padding: 120px 8% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .home-content {
+            max-width: 600px;
+        }
+
+        .home-content h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
+
+        .home-content h2 {
+            font-size: 28px;
+            color: var(--main-color);
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d5e2eb;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--main-color);
+            color: var(--dark-color);
+            border: 2px solid var(--main-color);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--main-color);
+        }
+
+        /* Profile Circle */
+        
+.profile-circle {
+    width: 280px;
+    height: 280px;
+    min-width: 220px;
+    border: 5px solid var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 171, 240, 0.25);
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+        /* General Sections */
+        section:not(.home) {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: var(--main-color);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--second-color);
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.9;
+            color: #d5e2eb;
+            font-size: 17px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-box {
+            padding: 30px 20px;
+            background: var(--second-color);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .skill-box h3 {
+            color: var(--main-color);
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .skill-box p {
+            line-height: 1.6;
+            color: #d5e2eb;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--second-color);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-box {
+            background: var(--dark-color);
+            padding: 30px 22px;
+            border-radius: 12px;
+            border-bottom: 3px solid var(--main-color);
+            transition: 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-box h3 {
+            color: var(--main-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .project-box p {
+            color: #d5e2eb;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+            color: #d5e2eb;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: var(--second-color);
+            color: #d5e2eb;
+        }
+
+        footer span {
+            color: var(--main-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 5%;
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: 14px;
+            }
+
+            .home {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .home-content h1 {
+                font-size: 40px;
+            }
+
+            .profile-circle {
+                width: 220px;
+                height: 220px;
+                font-size: 48px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                position: absolute;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 13px;
+            }
+
+            .home {
+                padding-top: 160px;
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .home-content h1 {
+                font-size: 36px;
+            }
+
+            .home-content h2 {
+                font-size: 23px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-circle {
+                width: 190px;
+                height: 190px;
+                min-width: 190px;
+                font-size: 42px;
+            }
+
+            section:not(.home) {
+                padding: 75px 6%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="#home" class="logo">Warda Ali.</a>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+
+        <div class="home-content">
+            <h1>Hi, I'm Warda Ali</h1>
+            <h2>Frontend Developer</h2>
+
+            <p>
+                Welcome to my personal portfolio!
+                I am an IT student learning HTML and CSS
+                to create beautiful, modern and responsive
+                websites. I enjoy learning new technologies
+                and improving my web development skills.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">My Projects</a>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="profile-circle">
+            <img src="warda img" alt="">
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p>
+            My name is Warda Ali, and I am an IT student
+            interested in web development. I am learning
+            how to build websites using HTML and CSS.
+            My goal is to develop my technical skills,
+            create useful projects and become a successful
+            web developer in the future.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My <span>Skills</span></h2>
+
+        <div class="skills-container">
+
+            <div class="skill-box">
+                <h3>HTML</h3>
+                <p>
+                    Creating website structure using
+                    headings, paragraphs, links and sections.
+                </p>
+            </div>
+
+            <div class="skill-box">
+                <h3>CSS</h3>
+                <p>
+                    Styling websites with colors, layouts,
+                    spacing, effects and responsive designs.
+                </p>
+            </div>
+
+            <div class="skill-box">
+                <h3>Web Design</h3>
+                <p>
+                    Designing clean, attractive and
+                    user-friendly web pages.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <div class="projects-container">
+
+            <div class="project-box">
+                <h3>Portfolio Website</h3>
+                <p>
+                    A personal website to introduce myself,
+                    display my skills and share my work.
+                </p>
+            </div>
+
+            <div class="project-box">
+                <h3>Landing Page</h3>
+                <p>
+                    A modern landing page with a navigation
+                    bar, content section and attractive buttons.
+                </p>
+            </div>
+
+            <div class="project-box">
+                <h3>Food Website</h3>
+                <p>
+                    A simple food website design featuring
+                    food information and a clean layout.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <p>
+            Thank you for visiting my portfolio.
+            Feel free to contact me by email.
+        </p>
+
+        <a href="mailto:your-email@example.com" class="btn">
+            Email Me
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Copyright &copy; 2026
+            <span>Warda Ali</span> | All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
+        
